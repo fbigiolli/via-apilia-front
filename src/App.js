@@ -11,8 +11,8 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container px-5">
-        <div className='row justify-content-center d-flex'>
+      <div className="container">
+        <div className='row'>
           <div className='col-md-12 mt-5 text-center'>
             <div className='header-title'>Paso 1/2</div>
             <div className='header-subtitle'>Seleccioná el tamaño del pote</div>
