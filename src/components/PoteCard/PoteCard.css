@@ -2,13 +2,11 @@
 .pote-card {
   width: 100%;
   max-width: 300px;
-  height: auto;
-  max-height: 342px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   background: #FFFFFF;
   transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  aspect-ratio: 301.33 / 342; 
+  aspect-ratio: 4 / 3 ; 
 }
   .pote-card:hover {
     transform: translateY(-10px);
