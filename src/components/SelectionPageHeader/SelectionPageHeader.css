@@ -1,0 +1,17 @@
+.header-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.header-title {
+    font-family: 'Inter', sans-serif;
+    font-style: bold;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 150%;
+    color: #000000;
+}

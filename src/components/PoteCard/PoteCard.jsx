@@ -5,7 +5,7 @@ import './PoteCard.css';
 const PoteCard = ({ imageSrc, title, subtitle, cardId, isSelected, onClick }) => {
 
   return (
-    <Card className={`pote-card ${isSelected ? 'selected' : ''}` } col-sm-12 col-md-4 mb-4 onClick={() => onClick(cardId)}>
+    <Card className={`pote-card ${isSelected ? 'selected' : ''}` }  onClick={() => onClick(cardId)}>
       <Card.Img variant="top" src={imageSrc} className="pote-card-img" />
       <Card.Body>
         <Card.Title className="pote-card-title">{title}</Card.Title>
