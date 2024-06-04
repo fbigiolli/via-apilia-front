@@ -1,0 +1,69 @@
+.card-estado-del-pote {
+    width: 100%;
+    max-width: 297px;
+    height: 97% !important;
+    background-color: #FFFFFF;
+    box-shadow: -4px 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.card-title-header {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #000000;
+}
+
+.card-text-gustos {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #000000;
+}
+
+.card-text-gustos-details {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: #000000;
+}
+
+.card-body-status {
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 9px;
+}
+
+.card-vector {
+    width: 20px;
+    height: 20px;
+}
+
+.card-text-status {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+
+.card-body-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.card-button {
+    width: 100%;
+    height: 100%;
+    max-width: 184px;
+    height: 52px;
+}
+
+.card-button span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+}

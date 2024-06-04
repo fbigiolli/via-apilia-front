@@ -3,6 +3,7 @@ import { Col, Container, Row } from "react-bootstrap";
 
 import GustoCard from "../GustoCard/GustoCard";
 import SelectionPageHeader from "../SelectionPageHeader/SelectionPageHeader";
+import EstadoDelPoteCard from "../EstadoDelPoteCard/EstadoDelPoteCard";
 
 
 
@@ -83,6 +84,10 @@ const GustoSelectionPage = ({ selectedGustos, handleGustoCardClick }) => {
                             />
                         </Col>
                     </Row>
+                </Col>
+
+                <Col xs={12} lg = {{ span: 3, offset: 1 }} className="justify-content-center">
+                    <EstadoDelPoteCard/>
                 </Col>
             </Row>
         </Container>

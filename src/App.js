@@ -25,14 +25,19 @@ function App() {
 
   return (
     <div className="App">
-      <PoteSelectionPage
-        selectedPote = {selectedPote}
-        handlePoteCardClick = {handlePoteCardClick}  
-      />
-      <GustoSelectionPage
-        selectedGustos = {selectedGustos}
-        handleGustoCardClick={handleGustosCardClick}
-      />
+      <div className='PoteSelectionPage'>
+        <PoteSelectionPage
+          selectedPote = {selectedPote}
+          handlePoteCardClick = {handlePoteCardClick}  
+        />
+      </div>
+
+      <div className='GustoSelectionPage'>
+        <GustoSelectionPage
+          selectedGustos = {selectedGustos}
+          handleGustoCardClick={handleGustosCardClick}
+        />
+      </div>
     </div>
   );
 };
