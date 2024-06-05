@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Button, CardSubtitle } from 'react-bootstrap';
 import './EstadoDelPoteCard.css';
 
-const EstadoDelPoteCard = () => {
+const EstadoDelPoteCard = ({ selectedGustos, isComplete, maxGustos }) => {
     return (
         <Card className="card-estado-del-pote">
             <Card.Body className="d-flex flex-column justify-content-between mx-2 mt-2">
@@ -16,21 +16,34 @@ const EstadoDelPoteCard = () => {
                     </CardSubtitle>
 
                     <Card.Text className="card-text-gustos-details mt-3">
-                        Dulce de Leche <br></br>
-                        Dulce de Leche <br></br>
-                        Dulce de Leche
+                        {selectedGustos.map((gusto, index) => (
+                            <span key={index}>
+                                {gusto}
+                                <br />
+                            </span>
+                        ))}
                     </Card.Text>
                 </div>
 
-                <div className="mt-auto">
-                    <div className="card-body-status d-flex align-items-center ">
-                        <div className="card-vector">
-                            <ion-icon name="checkmark-circle"></ion-icon>
-                        </div>
-                        <Card.Text className="card-text-status">
-                            El pote está completo
-                        </Card.Text>
+                <div>
+
+                    <div className="card-body-status d-flex align-items-center">
+                        {isComplete ? (
+                            <>
+                                <div className="card-vector">
+                                    <ion-icon name="checkmark-circle"></ion-icon>
+                                </div>
+                                <Card.Text className="card-text-status">
+                                    El pote está completo
+                                </Card.Text>
+                            </>
+                        ) : (
+                            <Card.Text className="card-text-status">
+                                {selectedGustos.length}/{maxGustos} gustos seleccionados
+                            </Card.Text>
+                        )}
                     </div>
+
 
                     <div className="card-body-buttons">
                         <Button className="card-button" variant='dark'>

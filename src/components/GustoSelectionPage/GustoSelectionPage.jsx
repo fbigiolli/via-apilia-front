@@ -5,9 +5,9 @@ import GustoCard from "../GustoCard/GustoCard";
 import SelectionPageHeader from "../SelectionPageHeader/SelectionPageHeader";
 import EstadoDelPoteCard from "../EstadoDelPoteCard/EstadoDelPoteCard";
 
+import './GustoSelectionPage.css'
 
-
-const GustoSelectionPage = ({ selectedGustos, handleGustoCardClick }) => {
+const GustoSelectionPage = ({ selectedGustos, handleGustoCardClick, isComplete, maxGustos, gustos }) => {
     return (
         <Container>
             <SelectionPageHeader
@@ -17,77 +17,30 @@ const GustoSelectionPage = ({ selectedGustos, handleGustoCardClick }) => {
 
             <Row className="mt-5 justify-content-center">
                 <Col lg={8}>
-                    <Row>
-                        <Col xs={12} sm={6} lg={4} className="d-flex justify-content-center mb-3">
-                            <GustoCard
-                                title="Dulce de Leche"
-                                subtitle="Dulces de leche"
-                                description="Elaborado con ingredientes de la más alta calidad, nuestro helado de dulce de leche destaca por su sabor, y por su consistencia perfectamente equilibrada."
-                                isSelected={selectedGustos.includes('ddl')}
-                                gustoId = "ddl"
-                                onClick={handleGustoCardClick}
-                            />
-                        </Col>
-
-                        <Col xs={12} sm={6} lg={4} className="d-flex justify-content-center mb-3">
-                        <GustoCard
-                                title="Dulce de Leche"
-                                subtitle="Dulces de leche"
-                                description="Elaborado con ingredientes de la más alta calidad, nuestro helado de dulce de leche destaca por su sabor, y por su consistencia perfectamente equilibrada."
-                                isSelected={selectedGustos.includes('asd')}
-                                gustoId = "asd"
-                                onClick={handleGustoCardClick}
-                            />
-                        </Col>
-
-                        <Col xs={12} sm={6} lg={4} className="d-flex justify-content-center mb-3">
-                        <GustoCard
-                                title="Dulce de Leche"
-                                subtitle="Dulces de leche"
-                                description="Elaborado con ingredientes de la más alta calidad, nuestro helado de dulce de leche destaca por su sabor, y por su consistencia perfectamente equilibrada."
-                                isSelected={selectedGustos.includes('123')}
-                                gustoId = "123"
-                                onClick={handleGustoCardClick}
-                            />
-                        </Col>
-
-                        <Col xs={12} sm={6} lg={4} className="d-flex justify-content-center mb-3">
-                        <GustoCard
-                                title="Dulce de Leche"
-                                subtitle="Dulces de leche"
-                                description="Elaborado con ingredientes de la más alta calidad, nuestro helado de dulce de leche destaca por su sabor, y por su consistencia perfectamente equilibrada."
-                                isSelected={selectedGustos.includes('456')}
-                                gustoId = "456"
-                                onClick={handleGustoCardClick}
-                            />
-                        </Col>
-
-                        <Col xs={12} sm={6} lg={4} className="d-flex justify-content-center mb-3">
-                        <GustoCard
-                                title="Dulce de Leche"
-                                subtitle="Dulces de leche"
-                                description="Elaborado con ingredientes de la más alta calidad, nuestro helado de dulce de leche destaca por su sabor, y por su consistencia perfectamente equilibrada."
-                                isSelected={selectedGustos.includes('asddsa')}
-                                gustoId = "asddsa"
-                                onClick={handleGustoCardClick}
-                            />
-                        </Col>
-
-                        <Col xs={12} sm={6} lg={4} className="d-flex justify-content-center mb-3">
-                        <GustoCard
-                                title="Dulce de Leche"
-                                subtitle="Dulces de leche"
-                                description="Elaborado con ingredientes de la más alta calidad, nuestro helado de dulce de leche destaca por su sabor, y por su consistencia perfectamente equilibrada."
-                                isSelected={selectedGustos.includes('hdfg')}
-                                gustoId = "hdfg"
-                                onClick={handleGustoCardClick}
-                            />
-                        </Col>
-                    </Row>
+                    <div className="gusto-selection-container pt-3">
+                        <Row>
+                            {gustos.map((gusto, index) => (
+                                <Col xs={12} sm={6} lg={4} className="d-flex justify-content-center mb-3" key={index}>
+                                    <GustoCard
+                                        title={gusto.nombre}
+                                        subtitle={gusto.tipo}
+                                        description="Elaborado con ingredientes de la más alta calidad, nuestro helado de crema americana se caracteriza por su sabor exquisito y su consistencia rica y cremosa."
+                                        isSelected={selectedGustos.includes(gusto.id)}
+                                        gustoId={gusto.id}
+                                        onClick={handleGustoCardClick}
+                                    />
+                                </Col>
+                            ))}
+                        </Row>
+                    </div>
                 </Col>
 
-                <Col xs={12} lg = {{ span: 3, offset: 1 }} className="justify-content-center">
-                    <EstadoDelPoteCard/>
+                <Col xs={12} lg={{ span: 3, offset: 1 }} className="justify-content-center">
+                    <EstadoDelPoteCard
+                        selectedGustos={selectedGustos}
+                        isComplete={isComplete}
+                        maxGustos={maxGustos}
+                    />
                 </Col>
             </Row>
         </Container>
