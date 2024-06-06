@@ -15,7 +15,7 @@ function PoteSelectionPage({ selectedPote, handlePoteCardClick }) {
             />
 
             <Row className="mt-5 justify-content-center">
-                <Col xs={12} sm={6} lg={3} className="d-flex justify-content-center mb-3">
+                <Col xs={12} xl={3} className="d-flex justify-content-center mb-3">
                     <PoteCard
                         imageSrc="/helados-1-4.jpg"
                         title="1/4 Kilo"
@@ -25,7 +25,7 @@ function PoteSelectionPage({ selectedPote, handlePoteCardClick }) {
                         onClick={handlePoteCardClick}
                     />
                 </Col>
-                <Col xs={12} sm={6} lg={3} className="d-flex justify-content-center mb-3">
+                <Col xs={12} xl={3} className="d-flex justify-content-center mb-3">
                     <PoteCard
                         imageSrc="/helados-1-4.jpg"
                         title="1/2 Kilo"
@@ -35,7 +35,7 @@ function PoteSelectionPage({ selectedPote, handlePoteCardClick }) {
                         onClick={handlePoteCardClick}
                     />
                 </Col>
-                <Col xs={12} sm={6} lg={3} className="d-flex justify-content-center mb-3">
+                <Col xs={12} xl={3} className="d-flex justify-content-center mb-3">
                     <PoteCard
                         imageSrc="/helados-1-4.jpg"
                         title="1 Kilo"

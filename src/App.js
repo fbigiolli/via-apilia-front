@@ -6,7 +6,7 @@ import GustoSelectionPage from './components/GustoSelectionPage/GustoSelectionPa
 function App() {
   const [selectedPote, setSelectedPote] = useState(null);
   const [maxGustos, setMaxGustos] = useState(0);
-  const [selectedGustos, setSelectedGustos] = useState([]);
+  const [selectedGustosID, setselectedGustosID] = useState([]);
   const [gustos, setGustos] = useState([]);
   const gustoSelectionRef = useRef(null); 
 
@@ -38,11 +38,11 @@ function App() {
     if (selectedPote === cardId) {
       setSelectedPote(null);
       setMaxGustos(0);
-      setSelectedGustos([]);
+      setselectedGustosID([]);
     } else {
-      // Remove the last element from selectedGustos
+      // Remove the last element from selectedGustosID
       if (selectedPote && selectedPote === "1000") {
-        setSelectedGustos(selectedGustos.slice(0, -1));
+        setselectedGustosID(selectedGustosID.slice(0, -1));
       }
 
       // Set maxGustos
@@ -54,11 +54,11 @@ function App() {
 
   const handleGustosCardClick = (gustoId) => {
     // Unselect
-    if (selectedGustos.includes(gustoId)) {
-      setSelectedGustos(selectedGustos.filter(a => a !== gustoId));
-    } else if (selectedGustos.length < maxGustos) {
-      // Set selectedGustos if maxGustos isn't exceeded
-      setSelectedGustos([...selectedGustos, gustoId]);
+    if (selectedGustosID.includes(gustoId)) {
+      setselectedGustosID(selectedGustosID.filter(a => a !== gustoId));
+    } else if (selectedGustosID.length < maxGustos) {
+      // Set selectedGustosID if maxGustos isn't exceeded
+      setselectedGustosID([...selectedGustosID, gustoId]);
     }
   };
 
@@ -74,9 +74,9 @@ function App() {
       {selectedPote ?
         <div className='GustoSelectionPage' ref={gustoSelectionRef}>
           <GustoSelectionPage
-            selectedGustos={selectedGustos}
+            selectedGustosID={selectedGustosID}
             handleGustoCardClick={handleGustosCardClick}
-            isComplete={maxGustos !== 0 ? selectedGustos.length === maxGustos : false}
+            isComplete={maxGustos !== 0 ? selectedGustosID.length === maxGustos : false}
             maxGustos={maxGustos}
             gustos={gustos}
           />
