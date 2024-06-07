@@ -4,9 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import PoteCard from '../PoteCard/PoteCard';
 import SelectionPageHeader from '../SelectionPageHeader/SelectionPageHeader';
 
-import './PoteSelectionPage.css';
+import './PoteSizeSelectionPage.css';
 
-function PoteSelectionPage({ selectedPote, handlePoteCardClick }) {
+function PoteSizeSelectionPage({ selectedPote, handlePoteCardClick }) {
     return (
         <Container>
             <SelectionPageHeader
@@ -50,4 +50,4 @@ function PoteSelectionPage({ selectedPote, handlePoteCardClick }) {
     );
 };
 
-export default PoteSelectionPage;
+export default PoteSizeSelectionPage;

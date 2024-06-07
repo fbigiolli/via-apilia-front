@@ -38,7 +38,7 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
 
             <div className="d-none d-xl-block">
                 <Row className="mt-5 justify-content-center">
-                    <Col xs={12} lg={8}>
+                    <Col xl={8}>
                         <div className="gusto-selection-container pt-3 pr-3">
                             <Row>
                                 {renderGustoCards(gustos, selectedGustosID, handleGustoCardClick, { xl: 4 })}
@@ -46,7 +46,7 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
                         </div>
                     </Col>
 
-                    <Col lg={{ span: 3, offset: 1 }} className="pt-3">
+                    <Col xl={{ span: 3, offset: 1 }} className="pt-3">
                         <EstadoDelPoteCard
                             selectedGustos={getNombresGustosByID(gustos, selectedGustosID)}
                             isComplete={isComplete}
@@ -57,7 +57,7 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
             </div>
             
             <div className="d-block d-xl-none">
-                <Row>
+                <Row className="mt-5">
                     {renderGustoCards(gustos, selectedGustosID, handleGustoCardClick, { xs: 12 })}
                 </Row>
 
