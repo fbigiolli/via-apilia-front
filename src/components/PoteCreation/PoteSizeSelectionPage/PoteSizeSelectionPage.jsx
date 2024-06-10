@@ -8,7 +8,7 @@ import './PoteSizeSelectionPage.css';
 
 function PoteSizeSelectionPage({ selectedPote, handlePoteCardClick }) {
     return (
-        <Container>
+        <Container className='body'>
             <SelectionPageHeader
                 headerTitle="Paso 1/2"
                 headerSubtitle="Seleccioná el tamaño del pote"

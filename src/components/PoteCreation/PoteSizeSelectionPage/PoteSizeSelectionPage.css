@@ -1,1 +1,17 @@
+.body{
+    animation: bodyInAnimation 2s ease 0s 1 normal forwards;
+}
 
+@keyframes bodyInAnimation {
+	0% {
+		opacity: 0;
+		transform: rotate(-540deg) scale(0);
+		transform-origin: 50% 100%;
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotate(0) scale(1);
+		transform-origin: 50% 100%;
+	}
+}

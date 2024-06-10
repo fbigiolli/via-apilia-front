@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Image, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './CustomerQuote.css'; // Importa el archivo CSS
+import './CustomerQuote.css'; 
 
 const CustomerQuote = () => {
     return (
