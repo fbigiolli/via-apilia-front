@@ -2,15 +2,18 @@ import React from "react";
 
 import './LandingPage.css'
 import NavbarApilia from "./Navbar/NavbarApilia";
-import { Container } from "react-bootstrap";
 import MainBody from "./MainBody/MainBody";
+import CustomerQuoteSection from "./CustomerQuoteSection/CustomerQuoteSection"
+import Footer from "./Footer/Footer"
 
 function LandingPage() {
     return (
-        <Container>
+        <div className="main-body">
             <NavbarApilia />
             <MainBody/>
-        </Container>
+            <CustomerQuoteSection/>
+            <Footer/>
+        </div>
     );
 }
 

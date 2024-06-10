@@ -1,0 +1,43 @@
+.customer-quote-card {
+    padding: 32px;
+    max-width: 405.33px;
+    border: 1px solid #F7F7F7;
+    box-shadow: -4px 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.quote-text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+.avatar-image {
+    width: 45px;
+    height: 45px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 2px;
+}
+
+.user-name {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.user-company {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #828282;
+}

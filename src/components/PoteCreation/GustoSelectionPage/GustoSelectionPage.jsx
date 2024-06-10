@@ -20,7 +20,7 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
                 <GustoCard
                     title={gusto.nombre}
                     subtitle={gusto.tipo}
-                    description="Elaborado con ingredientes de la más alta calidad, nuestro helado de crema americana se caracteriza por su sabor exquisito y su consistencia rica y cremosa."
+                    description={gusto.descripcion}
                     isSelected={selectedGustosID.includes(gusto.id)}
                     gustoId={gusto.id}
                     onClick={handleGustoCardClick}

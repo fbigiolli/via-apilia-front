@@ -1,25 +1,29 @@
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Image } from 'react-bootstrap';
 import './MainBody.css';
 
 const MainBody = () => {
     return (
-        <Container className="mi-container">
-            <Row className="justify-content-center align-items-center">
-                <Col xs={12}>
-                    <h1 className="mi-title">Via Apilia</h1>
+        <Container className="main-container text-center">
+            <Row>
+                <Col xs={12} className='d-flex justify-content-center '>
+                    <h1 className="main-title">Via Apilia</h1>
+                </Col>
+
+                <Col xs={12} className='d-flex justify-content-center  mt-3'>
+                    <p className="main-subtitle">El placer del helado hecho arte.</p>
+                </Col>
+
+                <Col xs={12} className='d-flex justify-content-center mt-2 mb-5'>
+                    <Button variant="dark" className="pedido-button">
+                        <span>Comenzar Pedido</span>
+                    </Button>
                 </Col>
             </Row>
-            <Row className="justify-content-center align-items-center">
-                <Col xs={12}>
-                    <p className="mi-subtitle">El placer del helado hecho arte.</p>
-                </Col>
-            </Row>
-            <Row className="justify-content-center align-items-center">
-                <Button variant="dark" className="mi-button">
-                    <span className="mi-button-text">Comenzar Pedido</span>
-                </Button>
-            </Row>
+
+            <Col xs={12} className='mt-5 mb-3 main-image'>
+                <Image src='MainBodyImage.jpg'rounded fluid></Image>
+            </Col>
         </Container>
     );
 }
