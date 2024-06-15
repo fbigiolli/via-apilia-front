@@ -1,9 +1,28 @@
-
-.body {
+.checkout-body {
+	max-width: 400px;
 	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.main-body{
+	background-color: #e3e3e3;
+	min-height: 100vh;
+}
+
+.titles{
+	font-weight: 600;
+	font-size: 13pt;
+}
+
+.selected-gustos{
+	font-weight: 500;
+	font-size: 12pt;
+}
+
+.price{
+	font-weight: 700;
+	font-size: 20pt;
+}
 
 @-webkit-keyframes slide-in-top {
 	0% {
@@ -32,3 +51,4 @@
 		opacity: 1;
 	}
 }
+

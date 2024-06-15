@@ -1,8 +1,14 @@
-/* Estilos.css */
-
 .main-container {
-    padding-top: 9%;
+    padding-top: 30%;
+    min-height: 85vh;
 }
+
+@media (min-width: 500px) {
+    .main-container {
+        padding-top: 9%;
+    }
+}
+
 
 .main-title {
     font-family: 'Inter', sans-serif;

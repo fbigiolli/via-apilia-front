@@ -1,4 +1,4 @@
-.title{
+.title {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
@@ -6,11 +6,34 @@
     line-height: 110%;
 }
 
-.subtitle{
+.subtitle {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 150%;
     color: #828282;
+}
+
+.customer-quote-section {
+    opacity: 0;
+}
+
+.customer-quote-section.animate {
+    opacity: 1;
+    animation: slideIn 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+    animation-delay: .1s;
+}
+
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

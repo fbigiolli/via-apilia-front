@@ -9,12 +9,12 @@ import Footer from "./Footer/Footer"
 function LandingPage() {
     return (
         <div className="main-body">
+            <div className="overlay"></div>
             <NavbarApilia />
-            <MainBody/>
-            <CustomerQuoteSection/>
-            <Footer/>
+            <MainBody />
+            <CustomerQuoteSection />
+            <Footer />
         </div>
     );
 }
-
 export default LandingPage;

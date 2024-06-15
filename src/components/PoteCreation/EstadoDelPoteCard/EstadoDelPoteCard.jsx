@@ -1,8 +1,17 @@
 import React from 'react';
 import { Card, Button, CardSubtitle } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './EstadoDelPoteCard.css';
 
+
 const EstadoDelPoteCard = ({ selectedGustos, isComplete, maxGustos }) => {
+
+    let navigate = useNavigate();
+
+    const navigateToCheckoutPage = () => {
+        navigate('/checkout');
+    };
+
     return (
         <Card className="card-estado-del-pote">
             <Card.Body className="d-flex flex-column justify-content-between mx-2 mt-2">
@@ -46,10 +55,10 @@ const EstadoDelPoteCard = ({ selectedGustos, isComplete, maxGustos }) => {
 
 
                     <div className="card-body-buttons">
-                        <Button className="card-button" variant='dark'>
+                        {/* <Button className="card-button" variant='dark'>
                             <span>Agregar otro pote</span>
-                        </Button>
-                        <Button className="card-button" variant='dark'>
+                        </Button> */}
+                        <Button onClick={navigateToCheckoutPage} className="card-button" variant='dark'>
                             <span>Ir al checkout</span>
                         </Button>
                     </div>

@@ -27,10 +27,12 @@ const MainBody = () => {
                     </Button>
                 </Col>
             </Row>
+            <Row>
 
-            <Col xs={12} className='mt-5 mb-3 main-image'>
-                <Image src='MainBodyImage.jpg' rounded fluid></Image>
-            </Col>
+                <Col xs={12} className='mt-5 mb-3'>
+                    <Image src='MainBodyImage.jpg' rounded fluid></Image>
+                </Col>
+            </Row>
         </Container>
     );
 }

@@ -23,7 +23,7 @@ function NavbarApilia() {
                             <Nav.Link href="#About">About</Nav.Link>
                         </Nav>
                         <div className="ms-4">
-                            <Button className="login-button" variant="dark">Ingresar</Button>
+                            <Button className="consulta-button" variant="dark">Consultar pedido</Button>
                         </div>
                     </Navbar.Collapse>
                 </Container>
