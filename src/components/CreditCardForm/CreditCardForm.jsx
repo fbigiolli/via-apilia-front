@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 // import 'react-credit-cards-2/dist/es/styles-compiled.css';
-import { Row, Col, Form, Button, InputGroup, Container } from 'react-bootstrap';
-import './CreditCardForm.css'; 
+import { Row, Col, Form, Button, InputGroup, Container, Alert } from 'react-bootstrap';
+import './CreditCardForm.css';
 
-const CardForm = () => {
+const CardForm = ( { navigateFunction } ) => {
     const [state, setState] = useState({
         number: '',
         expiry: '',
@@ -24,8 +24,8 @@ const CardForm = () => {
     };
 
     return (
-        <>  
-            <Container >
+        <>
+            <Container className='credit-card-form-container' >
                 <Cards
                     number={state.number}
                     expiry={state.expiry}
@@ -35,7 +35,7 @@ const CardForm = () => {
                 />
 
                 <Row className='mt-4'>
-                    <Col  className='mx-auto'>
+                    <Col className='mx-auto'>
                         <Form>
                             <Row className='mb-3'>
                                 <Form.Group>
@@ -43,7 +43,7 @@ const CardForm = () => {
                                         <Form.Control
                                             type="tel"
                                             name="number"
-                                            placeholder="Card Number"
+                                            placeholder="Número de tarjeta"
                                             value={state.number}
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
@@ -62,7 +62,7 @@ const CardForm = () => {
                                         <Form.Control
                                             type="text"
                                             name="name"
-                                            placeholder="Cardholder Name"
+                                            placeholder="Nombre del propietario"
                                             value={state.name}
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
@@ -114,9 +114,15 @@ const CardForm = () => {
                                 </Col>
                             </Row>
 
-                            <Button className="mt-3 checkout-button" variant='dark' type="submit">
-                                <span>Submit</span>
+                            <Alert className='mt-2' key={'info'} variant={'info'}>
+                                Este sitio es una demo, no se procesa ningun tipo de pago al tocar el botón.
+                                <strong> NO</strong> transfieras al CBU salvo que me quieras hacer una donación ;)
+                            </Alert>
+
+                            <Button onClick={navigateFunction} className="mb-3 checkout-button" variant='dark'>
+                                <span>Pagar</span>
                             </Button>
+
                         </Form>
                     </Col>
                 </Row>

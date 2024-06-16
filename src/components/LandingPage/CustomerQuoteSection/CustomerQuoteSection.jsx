@@ -6,7 +6,7 @@ import useIntersectionObserver from '../../Hooks/UseIntersectionObserver';
 import './CustomerQuoteSection.css';
 
 const CustomerQuoteSection = () => {
-    const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
+    const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.2 });
 
     return (
         <div ref={ref} className={`customer-quote-section ${isIntersecting ? 'animate' : ''}`}>

@@ -5,6 +5,7 @@ import NavbarApilia from "./Navbar/NavbarApilia";
 import MainBody from "./MainBody/MainBody";
 import CustomerQuoteSection from "./CustomerQuoteSection/CustomerQuoteSection"
 import Footer from "./Footer/Footer"
+import GoogleMapSection from "./GoogleMapSection/GoogleMapSection";
 
 function LandingPage() {
     return (
@@ -13,6 +14,7 @@ function LandingPage() {
             <NavbarApilia />
             <MainBody />
             <CustomerQuoteSection />
+            <GoogleMapSection/>
             <Footer />
         </div>
     );
