@@ -27,7 +27,7 @@ function PaymentSuccessPage() {
                 </Row>
 
                 <p className="text-muted mt-5">Mientras tanto... te invitamos a que sigas mirando nuestra página, o hagas otro pedido ;)</p>
-                <Button onClick={navigateToLanding} className='checkout-button mt-2' variant='dark'>Volver al inicio</Button>
+                <Button onClick={navigateToLanding} className='success-button mt-2' variant='dark'>Volver al inicio</Button>
             </Col>
         </Row>
     );

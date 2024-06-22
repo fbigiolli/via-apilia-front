@@ -106,7 +106,7 @@ const PaymentForm = () => {
                                         {tipoDePago === 'tarjeta' && <CardForm proccesingPayment={proccesingPayment} navigateFunction={navigateToLanding} />}
                                         {tipoDePago === 'transferencia' &&
                                             <Container className='transferencia-container'>
-                                                <Row >
+                                                <Row className='justify-content-center' >
                                                     <p>Transferí a nuestro CBU: <strong>0000003100017775985106</strong> y confirmá el pago una vez hecha la transferencia.</p>
 
                                                     <Alert className='mt-2' key={'info'} variant={'info'}>
