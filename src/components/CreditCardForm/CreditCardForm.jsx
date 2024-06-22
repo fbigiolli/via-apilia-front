@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import Cards from 'react-credit-cards-2';
 // import 'react-credit-cards-2/dist/es/styles-compiled.css';
-import { Row, Col, Form, Button, InputGroup, Container, Alert } from 'react-bootstrap';
+import { Row, Col, Form, Button, InputGroup, Container, Alert, Spinner } from 'react-bootstrap';
 import './CreditCardForm.css';
 
-const CardForm = ( { navigateFunction } ) => {
+const CardForm = ({ navigateFunction, proccesingPayment }) => {
     const [state, setState] = useState({
         number: '',
         expiry: '',
@@ -121,8 +121,14 @@ const CardForm = ( { navigateFunction } ) => {
 
                             <Button onClick={navigateFunction} className="mb-3 checkout-button" variant='dark'>
                                 <span>Pagar</span>
+                                {proccesingPayment && <Spinner className='ms-2'
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                />}
                             </Button>
-
                         </Form>
                     </Col>
                 </Row>

@@ -1,5 +1,8 @@
 .checkout-body {
-	max-width: 400px;
+	max-width: 410px;
+}
+
+.entrance-animation{
 	-webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
@@ -13,12 +16,6 @@
 	background-color: #e3e3e3;
 	min-height: 100vh;
 	font-family: 'Inter';
-}
-
-.titles{
-	height: 30px;
-	font-weight: 600;
-	font-size: 13pt;
 }
 
 .selected-gustos{
@@ -70,4 +67,33 @@
     font-weight: 500;
     font-size: 16px;
     color: #FFFFFF;
+}
+
+.summary-card {
+    background: #FFFFFF;
+    border: 1px solid #F7F7F7;
+    box-shadow: -4px 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 12px;
+}
+
+.forms-card{
+	width: 100%;
+}
+
+.summary-title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.sticky-summary {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 20px; 
+}
+
+.success-icon {
+    color: white;
+    width: 35px;
+    height: 35px;
 }

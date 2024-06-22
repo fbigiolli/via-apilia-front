@@ -15,13 +15,15 @@ const EstadoDelPoteCard = ({ selectedGustos, isComplete, maxGustos, selectedPote
     let navigate = useNavigate();
 
     const navigateToCheckoutPage = () => {
-        navigate('/checkout', {
-            state: {
-                selectedGustos: selectedGustos,
-                poteSizeText: poteSizeText[selectedPote],
-                price: prices[selectedPote]
-            }
-        });
+        if(selectedGustos.length > 0){
+            navigate('/checkout', {
+                state: {
+                    selectedGustos: selectedGustos,
+                    poteSizeText: poteSizeText[selectedPote],
+                    price: prices[selectedPote]
+                }
+            });
+        }
     };
 
     return (

@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-
 import GustoCard from "../GustoCard/GustoCard";
 import SelectionPageHeader from "../SelectionPageHeader/SelectionPageHeader";
 import EstadoDelPoteCard from "../EstadoDelPoteCard/EstadoDelPoteCard";
-
-import './GustoSelectionPage.css'
+import './GustoSelectionPage.css';
 
 const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete, maxGustos, gustos, selectedPote, prices }) => {
     const getNombresGustosByID = (gustos, ids) => {
@@ -28,6 +26,14 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
             </Col>
         ))
     );
+
+    const estadoDelPoteRef = useRef(null);
+
+    useEffect(() => {
+        if (selectedGustosID.length === maxGustos) {
+            estadoDelPoteRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [selectedGustosID, maxGustos]);
 
     return (
         <Container>
@@ -57,7 +63,7 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
                     </Col>
                 </Row>
             </div>
-            
+
             <div className="d-block d-xl-none">
                 <Row className="mt-5">
                     {renderGustoCards(gustos, selectedGustosID, handleGustoCardClick, { xs: 12 })}
@@ -65,7 +71,7 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
 
                 <Row>
                     <Col xs={12} className="pt-3">
-                        <div className="d-flex justify-content-center">
+                        <div className="d-flex justify-content-center" ref={estadoDelPoteRef}>
                             <EstadoDelPoteCard
                                 selectedGustos={getNombresGustosByID(gustos, selectedGustosID)}
                                 isComplete={isComplete}
