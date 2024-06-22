@@ -9,7 +9,7 @@ import './NavbarApilia.css'
 function NavbarApilia() {
     return (
         <Container>
-            <Navbar >
+            <Navbar expand="sm">
                 <Container>
                     <Navbar.Brand href="#" className="mt-3 navbar">
                         <div className="d-flex align-items-center">
@@ -17,12 +17,13 @@ function NavbarApilia() {
                             <NavbarText>Via Apilia</NavbarText>
                         </div>
                     </Navbar.Brand>
-
-                    <Navbar.Collapse className="justify-content-end mt-3">
-                        <Nav>
-                            <Nav.Link href="#About">About</Nav.Link>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end mt-3">
+                        <Nav className="ms-3">
+                            <Nav.Link href="#Resenas">Reseñas</Nav.Link>
+                            <Nav.Link href="#Encontranos">Encontranos</Nav.Link>
                         </Nav>
-                        <div className="ms-4">
+                        <div className="ms-3">
                             <Button className="consulta-button" variant="dark">Consultar pedido</Button>
                         </div>
                     </Navbar.Collapse>

@@ -9,7 +9,7 @@ const GoogleMapSection = () => {
     const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.2 });
 
     return (
-        <div ref={ref} className={`customer-quote-section ${isIntersecting ? 'animate' : ''}`}>
+        <div id='Encontranos' ref={ref} className={`customer-quote-section ${isIntersecting ? 'animate' : ''}`}>
             <Container>
                 <Row>
                     <Col xs={12} className='mt-5'>

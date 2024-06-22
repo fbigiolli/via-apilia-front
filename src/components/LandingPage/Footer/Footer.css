@@ -1,18 +1,19 @@
-.footer-container{
+.footer-container {
     margin-top: 5% !important;
     background-color: black;
 }
 
-.footer-title{
+.footer-title {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 150%;
-    color:white;
+    color: white;
+    margin-top: -35px;
 }
 
-.footer-copyright{
+.footer-copyright {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
@@ -21,6 +22,24 @@
     color: white;
 }
 
-.icons{
-    color:#828282;
+.icons {
+    color: #828282;
+}
+
+.footer-icon {
+    color: white;
+    width: 200px;
+    height: 200px;
+}
+
+.footer-hr {
+    border: none;
+    height: 2px;
+    color: #ffffff;
+    background-color: #ffffff;
+}
+
+.footer-linkedin-icon{
+    width: 25px;
+    height: 25px;
 }

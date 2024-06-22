@@ -4,12 +4,24 @@ import { useNavigate } from 'react-router-dom';
 import './EstadoDelPoteCard.css';
 
 
-const EstadoDelPoteCard = ({ selectedGustos, isComplete, maxGustos }) => {
+const EstadoDelPoteCard = ({ selectedGustos, isComplete, maxGustos, selectedPote, prices }) => {
+
+    const poteSizeText = {
+        250: '1/4 Kg',
+        500: '1/2 Kg',
+        1000: '1 Kg'
+    }
 
     let navigate = useNavigate();
 
     const navigateToCheckoutPage = () => {
-        navigate('/checkout');
+        navigate('/checkout', {
+            state: {
+                selectedGustos: selectedGustos,
+                poteSizeText: poteSizeText[selectedPote],
+                price: prices[selectedPote]
+            }
+        });
     };
 
     return (

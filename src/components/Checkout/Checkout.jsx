@@ -4,9 +4,13 @@ import { Row, Col, Container, Button, Form, InputGroup, Alert } from 'react-boot
 import './Checkout.css';
 import CardForm from '../CreditCardForm/CreditCardForm';
 import SelectionPageHeader from '../PoteCreation/SelectionPageHeader/SelectionPageHeader'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 
 const PaymentForm = () => {
+    const location = useLocation();
+    const { selectedGustos, poteSizeText, price } = location.state || {};
+
     const [tipoDePago, setTipoDePago] = useState(null);
 
     const setTarjeta = () => {
@@ -35,20 +39,22 @@ const PaymentForm = () => {
 
 
                         <div className='titles'>
-                            <p >Pote Seleccionado: 1/4kg</p>
+                            <p >Pote Seleccionado: {poteSizeText}</p>
                         </div>
 
                         <div
                             className='titles'>
                             <p>Gustos seleccionados:</p>
                         </div>
-                        <span>Dulce de leche</span><br />
-                        <span>Limon</span><br />
-                        <span>Crema del Cielo</span>
-
+                        {selectedGustos.map((gusto, index) => (
+                            <span key={index}>
+                                {gusto}
+                                <br />
+                            </span>
+                        ))}
                         <hr />
                         <div className='price'>
-                            <p >Total: $3000</p>
+                            <p >Total: {price}</p>
                         </div>
                         <hr />
 

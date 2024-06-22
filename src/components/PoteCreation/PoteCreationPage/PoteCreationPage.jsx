@@ -11,6 +11,12 @@ function PoteCreationPage() {
     const [gustos, setGustos] = useState([]);
     const gustoSelectionRef = useRef(null);
 
+    const prices = {
+        250: '$4000',
+        500: '$7500',
+        1000: '$12000'
+    };
+
     useEffect(() => {
         const fetchGustos = async () => {
             try {
@@ -69,6 +75,7 @@ function PoteCreationPage() {
                 <PoteSizeSelectionPage
                     selectedPote={selectedPote}
                     handlePoteCardClick={handlePoteCardClick}
+                    prices = {prices}
                 />
             </div>
 
@@ -80,6 +87,8 @@ function PoteCreationPage() {
                         isComplete={maxGustos !== 0 ? selectedGustosID.length === maxGustos : false}
                         maxGustos={maxGustos}
                         gustos={gustos}
+                        selectedPote={selectedPote}
+                        prices={prices}
                     />
                 </div> : null}
         </div>

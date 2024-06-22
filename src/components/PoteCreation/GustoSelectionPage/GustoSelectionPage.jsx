@@ -7,7 +7,7 @@ import EstadoDelPoteCard from "../EstadoDelPoteCard/EstadoDelPoteCard";
 
 import './GustoSelectionPage.css'
 
-const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete, maxGustos, gustos }) => {
+const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete, maxGustos, gustos, selectedPote, prices }) => {
     const getNombresGustosByID = (gustos, ids) => {
         return gustos
             .filter(gusto => ids.includes(gusto.id))
@@ -51,6 +51,8 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
                             selectedGustos={getNombresGustosByID(gustos, selectedGustosID)}
                             isComplete={isComplete}
                             maxGustos={maxGustos}
+                            selectedPote={selectedPote}
+                            prices={prices}
                         />
                     </Col>
                 </Row>
@@ -68,6 +70,8 @@ const GustoSelectionPage = ({ selectedGustosID, handleGustoCardClick, isComplete
                                 selectedGustos={getNombresGustosByID(gustos, selectedGustosID)}
                                 isComplete={isComplete}
                                 maxGustos={maxGustos}
+                                selectedPote={selectedPote}
+                                prices={prices}
                             />
                         </div>
                     </Col>

@@ -1,31 +1,28 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import './Footer.css'
+import './Footer.css';
 
 const Footer = () => {
     return (
         <div className="footer-container mt-5">
             <Container>
-                <Row>
+                <Row className='justify-content-center text-center'>
                     <Col xs={12}>
-                        <h1 className="footer-title">Via Apilia</h1>
+                        <div>
+                            <img src={'ice-cream.svg'} alt="Ice Cream Icon" className='footer-icon'/> 
+                            <h1 className="footer-title">Via Apilia</h1>
+                        </div>
                     </Col>
                 </Row>
 
-                <Row className='mt-5'>
-                    {/* <Col xs={12} sm={6}>
-                        <ion-icon size="large" name="logo-facebook" ></ion-icon>
-                        <ion-icon size="large" name="logo-linkedin" ></ion-icon>
-                        <ion-icon size="large" name="logo-youtube" ></ion-icon>
-                        <ion-icon size="large" name="logo-instagram"></ion-icon>
-                    </Col> */}
+                <hr className='footer-hr'></hr>
 
-
-                    <Col xs={12} sm={6} /*className='text-end'*/>
+                <Row className='mt-4 text-center'>
+                    <Col xs={12} >
                         <h1 className='footer-copyright'>2024 © Desarrollado por Felipe Ignacio Bigiolli.</h1>
                     </Col>
-                </Row>
 
+                </Row>
             </Container>
         </div>
     );
