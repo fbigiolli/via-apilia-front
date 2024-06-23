@@ -1,7 +1,7 @@
 import React from "react";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import { Button, NavbarText } from "react-bootstrap";
+import { NavbarText } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 
 import './NavbarApilia.css'
@@ -23,9 +23,7 @@ function NavbarApilia() {
                             <Nav.Link href="#Resenas">Reseñas</Nav.Link>
                             <Nav.Link href="#Encontranos">Encontranos</Nav.Link>
                         </Nav>
-                        <div className="ms-3">
-                            <Button className="consulta-button" variant="dark">Consultar pedido</Button>
-                        </div>
+                
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

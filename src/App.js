@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import PoteCreationPage from './components/PoteCreation/PoteCreationPage/PoteCreationPage';
 import LandingPage from './components/LandingPage/LandingPage';
 import Checkout from './components/Checkout/Checkout'
