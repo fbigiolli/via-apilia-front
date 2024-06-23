@@ -20,8 +20,8 @@ function NavbarApilia() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end mt-3">
                         <Nav className="ms-3">
-                            <Nav.Link href="#Resenas">Reseñas</Nav.Link>
-                            <Nav.Link href="#Encontranos">Encontranos</Nav.Link>
+                            <Nav.Link /*href="#Resenas"*/>Reseñas</Nav.Link>
+                            <Nav.Link /*href="#Encontranos"*/>Encontranos</Nav.Link>
                         </Nav>
                 
                     </Navbar.Collapse>
