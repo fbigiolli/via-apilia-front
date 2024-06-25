@@ -27,7 +27,7 @@ const EstadoDelPoteCard = ({ selectedGustos, isComplete, maxGustos, selectedPote
     };
 
     return (
-        <Card className="card-estado-del-pote">
+        <Card className="card-estado-del-pote mb-3">
             <Card.Body className="d-flex flex-column justify-content-between mx-2 mt-2">
                 <div>
                     <Card.Title className="card-title-header">

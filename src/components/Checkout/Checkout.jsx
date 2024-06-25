@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import { Row, Col, Container, Button, Form, InputGroup, Alert, Card, CardTitle, CardBody, FormLabel, Spinner } from 'react-bootstrap';
 import './Checkout.css';
@@ -13,6 +13,13 @@ const PaymentForm = () => {
 
     const [tipoDePago, setTipoDePago] = useState(null);
     const [proccesingPayment, setProccesingPayment] = useState(false);
+    const datosDePagoRef = useRef(null);
+
+    useEffect(() => {
+        if (tipoDePago && datosDePagoRef.current) {
+            datosDePagoRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [tipoDePago]);
 
     const setTarjeta = () => {
         setTipoDePago('tarjeta');
@@ -98,7 +105,7 @@ const PaymentForm = () => {
                             </CardBody>
                         </Card>
 
-                        {tipoDePago != null && <Card className='mb-3'>
+                        {tipoDePago != null && <Card ref={datosDePagoRef} className='mb-3'>
                             <CardTitle className='summary-title mt-3'>Datos de pago</CardTitle>
                             <CardBody>
                                 <Row className='justify-content-center mt-3'>
