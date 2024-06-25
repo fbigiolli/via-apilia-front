@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './CustomerQuote.css'; 
 
 const CustomerQuote = () => {
+    const imagePath = `${process.env.PUBLIC_URL}/${'gbeder.png'}`;
+
     return (
         <Card className='customer-quote-card d-flex align-items-start'>
             <Card.Body>
@@ -12,7 +14,7 @@ const CustomerQuote = () => {
                 </Card.Text>
                 <Row>
                     <Col xs="auto">
-                        <Image src='gbeder.png' roundedCircle className='avatar-image' />
+                        <Image src={imagePath} roundedCircle className='avatar-image' />
                     </Col>
                     <Col>
                         <div className='user-info'>

@@ -3,13 +3,15 @@ import { Container, Row, Col } from 'react-bootstrap';
 import './Footer.css';
 
 const Footer = () => {
+    const imagePath = `${process.env.PUBLIC_URL}/${'ice-cream.svg'}`;
+
     return (
         <div className="footer-container mt-5">
             <Container>
                 <Row className='justify-content-center text-center'>
                     <Col xs={12}>
                         <div>
-                            <img src={'ice-cream.svg'} alt="Ice Cream Icon" className='footer-icon'/> 
+                            <img src={imagePath} alt="Ice Cream Icon" className='footer-icon'/> 
                             <h1 className="footer-title">Via Apilia</h1>
                         </div>
                     </Col>

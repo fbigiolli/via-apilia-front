@@ -10,6 +10,8 @@ const MainBody = () => {
         navigate('/poteSelection');
     };
 
+    const imagePath = `${process.env.PUBLIC_URL}/${'MainBodyImage.jpg'}`;
+
     return (
         <Container className="main-container text-center">
             <Row>
@@ -28,9 +30,8 @@ const MainBody = () => {
                 </Col>
             </Row>
             <Row>
-
                 <Col xs={12} className='mt-5 mb-3'>
-                    <Image src='MainBodyImage.jpg' rounded fluid></Image>
+                    <Image src={imagePath} rounded fluid></Image>
                 </Col>
             </Row>
         </Container>
