@@ -93,6 +93,6 @@ function PoteCreationPage() {
                 </div> : null}
         </div>
     );
-};
+}
 
 export default PoteCreationPage;
