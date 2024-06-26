@@ -15,23 +15,52 @@ const PaymentForm = () => {
     const [proccesingPayment, setProccesingPayment] = useState(false);
     const datosDePagoRef = useRef(null);
 
+    const [contacto, setContacto] = useState('');
+    const [direccion, setDireccion] = useState('');
+    const [errors, setErrors] = useState({ contacto: '', direccion: '' });
+
     useEffect(() => {
         if (tipoDePago && datosDePagoRef.current) {
             datosDePagoRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     }, [tipoDePago]);
 
-    const setTarjeta = () => {
-        setTipoDePago('tarjeta');
+    const validateContactInfoForm = () => {
+        let formErrors = {};
+        let isValid = true;
+
+        if (!contacto) {
+            formErrors.contacto = 'El número de teléfono es obligatorio';
+            isValid = false;
+        } else if (!/^\d+$/.test(contacto)) {
+            formErrors.contacto = 'El número de teléfono solo debe contener números';
+            isValid = false;
+        }
+
+        if (!direccion) {
+            formErrors.direccion = 'La dirección de entrega es obligatoria';
+            isValid = false;
+        }
+
+        setErrors(formErrors);
+        return isValid;
     };
 
-    const setTransferencia = () => {
-        setTipoDePago('transferencia');
+    const handleTarjetaClick = () => {
+        if (validateContactInfoForm()) {
+            setTipoDePago('tarjeta');
+        }
+    };
+
+    const handleTransferenciaClick = () => {
+        if (validateContactInfoForm()) {
+            setTipoDePago('transferencia');
+        }
     };
 
     let navigate = useNavigate();
 
-    const navigateToLanding = () => {
+    const navigateToSuccess = () => {
         setProccesingPayment(true);
 
         setTimeout(() => {
@@ -53,8 +82,8 @@ const PaymentForm = () => {
                             poteSizeText={poteSizeText}
                             selectedGustos={selectedGustos}
                             price={price}
-                            setTarjeta={setTarjeta}
-                            setTransferencia={setTransferencia}
+                            setTarjeta={handleTarjetaClick}
+                            setTransferencia={handleTransferenciaClick}
                         />
                     </Col>
 
@@ -72,7 +101,13 @@ const PaymentForm = () => {
                                                 name="contacto"
                                                 placeholder="Tu número de telefono"
                                                 maxLength="15"
+                                                value={contacto}
+                                                onChange={(e) => setContacto(e.target.value)}
+                                                isInvalid={!!errors.contacto}
                                             />
+                                            <Form.Control.Feedback type="invalid">
+                                                {errors.contacto}
+                                            </Form.Control.Feedback>
                                             <InputGroup.Text>
                                                 <ion-icon name="call-outline"></ion-icon>
                                             </InputGroup.Text>
@@ -81,11 +116,17 @@ const PaymentForm = () => {
                                         <FormLabel className='mt-3 text-muted'>Direccion de entrega:</FormLabel>
                                         <InputGroup>
                                             <Form.Control
-                                                type="dir"
+                                                type="text"
                                                 name="direccion"
                                                 placeholder="Tu dirección"
-                                                maxLength="20"
+                                                maxLength="50"
+                                                value={direccion}
+                                                onChange={(e) => setDireccion(e.target.value)}
+                                                isInvalid={!!errors.direccion}
                                             />
+                                            <Form.Control.Feedback type="invalid">
+                                                {errors.direccion}
+                                            </Form.Control.Feedback>
                                             <InputGroup.Text>
                                                 <ion-icon name="location-outline"></ion-icon>
                                             </InputGroup.Text>
@@ -98,10 +139,10 @@ const PaymentForm = () => {
                                         <p className="text-muted">Seleccioná el medio de pago:</p>
                                     </Col>
                                     <Col xs={6}>
-                                        <Button onClick={setTarjeta} className='checkout-button' variant='dark'>Tarjeta de Credito</Button>
+                                        <Button onClick={handleTarjetaClick} className='checkout-button' variant='dark'>Tarjeta de Credito</Button>
                                     </Col>
                                     <Col xs={6}>
-                                        <Button onClick={setTransferencia} className='checkout-button' variant='dark'>Transferencia</Button>
+                                        <Button onClick={handleTransferenciaClick} className='checkout-button' variant='dark'>Transferencia</Button>
                                     </Col>
                                 </Row>
                             </CardBody>
@@ -112,7 +153,7 @@ const PaymentForm = () => {
                             <CardBody>
                                 <Row className='justify-content-center mt-3'>
                                     <Col xs={12} className='checkout-body'>
-                                        {tipoDePago === 'tarjeta' && <CardForm proccesingPayment={proccesingPayment} navigateFunction={navigateToLanding} />}
+                                        {tipoDePago === 'tarjeta' && <CardForm proccesingPayment={proccesingPayment} navigateFunction={navigateToSuccess} />}
                                         {tipoDePago === 'transferencia' &&
                                             <Container className='transferencia-container'>
                                                 <Row className='justify-content-center' >
@@ -123,7 +164,7 @@ const PaymentForm = () => {
                                                         <strong> NO</strong> transfieras al CBU salvo que me quieras hacer una donación ;)
                                                     </Alert>
 
-                                                    <Button onClick={navigateToLanding} className='checkout-button mb-3' variant='dark'>
+                                                    <Button onClick={navigateToSuccess} className='checkout-button mb-3' variant='dark'>
                                                         <span>Confirmar pago</span>
                                                         {proccesingPayment && <Spinner className='ms-2'
                                                             as="span"
@@ -147,8 +188,8 @@ const PaymentForm = () => {
                                 poteSizeText={poteSizeText}
                                 selectedGustos={selectedGustos}
                                 price={price}
-                                setTarjeta={setTarjeta}
-                                setTransferencia={setTransferencia}
+                                setTarjeta={handleTarjetaClick}
+                                setTransferencia={handleTransferenciaClick}
                             />
                         </div>
                     </Col>

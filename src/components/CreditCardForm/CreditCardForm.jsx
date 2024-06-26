@@ -1,7 +1,5 @@
-
 import React, { useState } from 'react';
 import Cards from 'react-credit-cards-2';
-// import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import { Row, Col, Form, Button, InputGroup, Container, Alert, Spinner } from 'react-bootstrap';
 import './CreditCardForm.css';
 
@@ -14,6 +12,13 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
         focus: '',
     });
 
+    const [errors, setErrors] = useState({
+        number: '',
+        expiry: '',
+        cvc: '',
+        name: ''
+    });
+
     const handleInputChange = (evt) => {
         const { name, value } = evt.target;
         setState((prev) => ({ ...prev, [name]: value }));
@@ -23,9 +28,52 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
         setState((prev) => ({ ...prev, focus: evt.target.name }));
     };
 
+    const validateForm = () => {
+        const newErrors = {};
+        let isValid = true;
+
+        if (!state.number || !/^\d{13,18}$/.test(state.number)) {
+            newErrors.number = 'Número de tarjeta inválido (13-18 dígitos)';
+            isValid = false;
+        }
+
+        if (!state.expiry || !/^(0[1-9]|1[0-2])\/?([0-9]{2})$/.test(state.expiry)) {
+            newErrors.expiry = 'Fecha de expiración inválida (MM/YY)';
+            isValid = false;
+        } else {
+            const [month, year] = state.expiry.split('/').map(Number);
+            const currentDate = new Date();
+            const expiryDate = new Date(`20${year}`, month);
+            if (expiryDate <= currentDate) {
+                newErrors.expiry = 'La tarjeta ha expirado';
+                isValid = false;
+            }
+        }
+
+        if (!state.cvc || !/^\d{3}$/.test(state.cvc)) {
+            newErrors.cvc = 'CVC inválido (3 dígitos)';
+            isValid = false;
+        }
+
+        if (!state.name || !/^[a-zA-Z\s.]+$/.test(state.name)) {
+            newErrors.name = 'Nombre del propietario inválido (solo letras, espacios y puntos)';
+            isValid = false;
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    };
+
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        if (validateForm()) {
+            navigateFunction();
+        }
+    };
+
     return (
         <>
-            <Container className='credit-card-form-container' >
+            <Container className='credit-card-form-container'>
                 <Cards
                     number={state.number}
                     expiry={state.expiry}
@@ -36,7 +84,7 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
 
                 <Row className='mt-4'>
                     <Col className='mx-auto'>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Row className='mb-3'>
                                 <Form.Group>
                                     <InputGroup>
@@ -47,11 +95,15 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
                                             value={state.number}
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
-                                            maxLength="16"
+                                            maxLength="18"
+                                            isInvalid={!!errors.number}
                                         />
                                         <InputGroup.Text>
                                             <ion-icon name="card-outline"></ion-icon>
                                         </InputGroup.Text>
+                                        <Form.Control.Feedback type="invalid">
+                                            {errors.number}
+                                        </Form.Control.Feedback>
                                     </InputGroup>
                                 </Form.Group>
                             </Row>
@@ -66,10 +118,14 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
                                             value={state.name}
                                             onChange={handleInputChange}
                                             onFocus={handleInputFocus}
+                                            isInvalid={!!errors.name}
                                         />
                                         <InputGroup.Text>
                                             <ion-icon name="person-outline"></ion-icon>
                                         </InputGroup.Text>
+                                        <Form.Control.Feedback type="invalid">
+                                            {errors.name}
+                                        </Form.Control.Feedback>
                                     </InputGroup>
                                 </Form.Group>
                             </Row>
@@ -86,10 +142,14 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
                                                 onChange={handleInputChange}
                                                 onFocus={handleInputFocus}
                                                 maxLength="5"
+                                                isInvalid={!!errors.expiry}
                                             />
                                             <InputGroup.Text>
                                                 <ion-icon name="calendar-outline"></ion-icon>
                                             </InputGroup.Text>
+                                            <Form.Control.Feedback type="invalid">
+                                                {errors.expiry}
+                                            </Form.Control.Feedback>
                                         </InputGroup>
                                     </Form.Group>
                                 </Col>
@@ -105,10 +165,14 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
                                                 onChange={handleInputChange}
                                                 onFocus={handleInputFocus}
                                                 maxLength="3"
+                                                isInvalid={!!errors.cvc}
                                             />
                                             <InputGroup.Text>
                                                 <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
                                             </InputGroup.Text>
+                                            <Form.Control.Feedback type="invalid">
+                                                {errors.cvc}
+                                            </Form.Control.Feedback>
                                         </InputGroup>
                                     </Form.Group>
                                 </Col>
@@ -119,7 +183,7 @@ const CardForm = ({ navigateFunction, proccesingPayment }) => {
                                 <strong> NO</strong> transfieras al CBU salvo que me quieras hacer una donación ;)
                             </Alert>
 
-                            <Button onClick={navigateFunction} className="mb-3 checkout-button" variant='dark'>
+                            <Button type="submit" className="mb-3 checkout-button" variant='dark'>
                                 <span>Pagar</span>
                                 {proccesingPayment && <Spinner className='ms-2'
                                     as="span"
