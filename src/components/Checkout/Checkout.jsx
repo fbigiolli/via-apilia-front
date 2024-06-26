@@ -63,33 +63,35 @@ const PaymentForm = () => {
                             <CardTitle className='summary-title mt-3'>Informacion de contacto</CardTitle>
                             <CardBody className='text-start mt-1'>
                                 <p className="text-muted">Te pedimos un número de teléfono para poder avisarte sobre cualquier inconveniente que pudiera llegar a ocurrir, y para notificarte cuando esté yendo el repartidor.</p>
-                                <Form.Group>
-                                    <FormLabel className='text-muted'>Numero de telefono:</FormLabel>
-                                    <InputGroup>
-                                        <Form.Control
-                                            type="tel"
-                                            name="contacto"
-                                            placeholder="Tu número de telefono"
-                                            maxLength="15"
-                                        />
-                                        <InputGroup.Text>
-                                            <ion-icon name="call-outline"></ion-icon>
-                                        </InputGroup.Text>
-                                    </InputGroup>
+                                <Form>
+                                    <Form.Group>
+                                        <FormLabel className='text-muted'>Numero de telefono:</FormLabel>
+                                        <InputGroup>
+                                            <Form.Control
+                                                type="tel"
+                                                name="contacto"
+                                                placeholder="Tu número de telefono"
+                                                maxLength="15"
+                                            />
+                                            <InputGroup.Text>
+                                                <ion-icon name="call-outline"></ion-icon>
+                                            </InputGroup.Text>
+                                        </InputGroup>
 
-                                    <FormLabel className='mt-3 text-muted'>Direccion de entrega:</FormLabel>
-                                    <InputGroup>
-                                        <Form.Control
-                                            type="dir"
-                                            name="direccion"
-                                            placeholder="Tu dirección"
-                                            maxLength="20"
-                                        />
-                                        <InputGroup.Text>
-                                            <ion-icon name="location-outline"></ion-icon>
-                                        </InputGroup.Text>
-                                    </InputGroup>
-                                </Form.Group>
+                                        <FormLabel className='mt-3 text-muted'>Direccion de entrega:</FormLabel>
+                                        <InputGroup>
+                                            <Form.Control
+                                                type="dir"
+                                                name="direccion"
+                                                placeholder="Tu dirección"
+                                                maxLength="20"
+                                            />
+                                            <InputGroup.Text>
+                                                <ion-icon name="location-outline"></ion-icon>
+                                            </InputGroup.Text>
+                                        </InputGroup>
+                                    </Form.Group>
+                                </Form>
 
                                 <Row className='mb-2 mt-3 checkout-body'>
                                     <Col xs={12}>

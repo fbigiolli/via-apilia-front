@@ -10,7 +10,7 @@ const CustomerQuote = () => {
         <Card className='customer-quote-card d-flex align-items-start'>
             <Card.Body>
                 <Card.Text className='quote-text'>
-                    “El unico helado que no me hizo cagarme encima hasta el momento”
+                    “Un gran helado, lo tomamos siempre antes de empezar el programa.”
                 </Card.Text>
                 <Row>
                     <Col xs="auto">
