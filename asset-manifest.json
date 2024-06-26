@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/via-apilia-front/static/css/main.f20099eb.css",
-    "main.js": "/via-apilia-front/static/js/main.1d865726.js",
+    "main.js": "/via-apilia-front/static/js/main.2ca555e2.js",
     "index.html": "/via-apilia-front/index.html",
     "main.f20099eb.css.map": "/via-apilia-front/static/css/main.f20099eb.css.map",
-    "main.1d865726.js.map": "/via-apilia-front/static/js/main.1d865726.js.map"
+    "main.2ca555e2.js.map": "/via-apilia-front/static/js/main.2ca555e2.js.map"
   },
   "entrypoints": [
     "static/css/main.f20099eb.css",
-    "static/js/main.1d865726.js"
+    "static/js/main.2ca555e2.js"
   ]
 }
